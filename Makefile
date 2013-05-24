@@ -8,7 +8,7 @@ upload: sdist
 	python setup.py upload
 
 test:
-	# cd example_project && python manage.py test
+	DJANGO_SETTINGS_MODULE=example_project.settings.local nosetests
 
 clean:
 	rm -rf dist/
