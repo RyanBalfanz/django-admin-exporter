@@ -9,4 +9,5 @@ branches:
     - master
     - develop
     - /^feature-.*$/
+install: "pip install -r requirements.txt --use-mirrors"
 script: make test
