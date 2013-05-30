@@ -11,5 +11,6 @@ test:
 	PYTHONPATH=`pwd`/example_project/ DJANGO_SETTINGS_MODULE=example_project.settings.local nosetests
 
 clean:
+	find ./ -name "*.pyc" -delete
 	rm -rf dist/
 	rm -rf *.egg-info
