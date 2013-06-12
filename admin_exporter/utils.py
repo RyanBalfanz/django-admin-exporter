@@ -30,9 +30,17 @@ def json_to_csv(jsonData, fieldnames=None):
 
 def dict_to_csv(d, fieldnames):
 	"""
-	Returns a CSV string from the given dictionary.
+	Returns a CSV string from the given list of dictionaries.
 
 	This assumes that each dictionary is simple and each contains the same keys.
+
+	>>> import json
+	>>> data = [
+	... {"col1": "foo", "col2": "Ȓȳǡɴ"},
+	... {"col1": "foo", "col2": "bar"},
+	... {"col1": "foo", "col2": "bar"},
+	... ]
+	>>> csvData = dict_to_csv(data, fieldnames=["col1", "col2"])
 	"""
 	buf = None
 	with closing(StringIO.StringIO()) as f:
