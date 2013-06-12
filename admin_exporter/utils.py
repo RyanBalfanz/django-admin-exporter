@@ -1,6 +1,8 @@
-import csv
 import json
 from contextlib import closing
+
+import unicodecsv
+
 
 try:
 	import cStringIO as StringIO
@@ -24,7 +26,7 @@ def dict_to_csv(d, fieldnames):
 	"""
 	buf = None
 	with closing(StringIO.StringIO()) as f:
-		dictWriter = csv.DictWriter(f, fieldnames)
+		dictWriter = unicodecsv.DictWriter(f, fieldnames)
 		dictWriter.writeheader()
 		dictWriter.writerows(d)
 
