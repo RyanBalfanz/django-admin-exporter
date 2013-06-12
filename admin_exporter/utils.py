@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import json
 from contextlib import closing
 
@@ -13,6 +15,14 @@ except ImportError:
 def json_to_csv(jsonData, fieldnames=None):
 	"""
 	Returns a CSV string from the given JSON data string.
+
+	>>> import json
+	>>> data = [
+	... {"col1": "foo", "col2": "Ȓȳǡɴ"},
+	... {"col1": "foo", "col2": "bar"},
+	... {"col1": "foo", "col2": "bar"},
+	... ]
+	>>> csvData = json_to_csv(json.dumps(data))
 	"""
 	d = json.loads(jsonData)
 	fieldnames = fieldnames or d[0].keys()
@@ -33,14 +43,3 @@ def dict_to_csv(d, fieldnames):
 		buf = f.getvalue()
 
 	return buf
-
-
-if __name__ == "__main__":
-	data = [
-		{"col2": "foo", "col1": "foo"},
-		{"col2": "bar", "col1": "bar"},
-		{"col2": "baz", "col1": "baz"},
-	]
-
-	jsonString = json.dumps(data)
-	print json_to_csv(json.dumps(data), data[0].keys())
