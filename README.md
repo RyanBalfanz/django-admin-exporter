@@ -17,3 +17,8 @@ Install
 	Add ``admin_exporter`` to your INSTALLED_APPS.
 
 	Add the vairous exporter actions to individual models or site-wide. See the example project for details.
+
+Running the tests
+-----------------
+
+	make test
