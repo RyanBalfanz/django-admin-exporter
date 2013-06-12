@@ -21,7 +21,7 @@ setup(
 	zip_safe=False,
 	include_package_data=True,
 	platforms='any',
-	requires=['unicodecsv>=0.9.4']
+	requires=['unicodecsv>=0.9.4'],
 	classifiers=[
 		'Environment :: Web Environment',
 		'Intended Audience :: Developers',
