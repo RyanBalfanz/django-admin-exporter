@@ -26,7 +26,7 @@ def export(queryset, format):
 	else:
 		data = serialize_queryset(queryset, format)
 
-	response = HttpResponse(data, mimetype="application/x-download")
+	response = HttpResponse(data, content_type="application/x-download")
 	response["Content-Disposition"] = "attachment;filename=export.{extention}".format(extention=format.lower())
 
 	return response
