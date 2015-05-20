@@ -5,11 +5,10 @@ from contextlib import closing
 
 import unicodecsv
 
-
 try:
-	import cStringIO as StringIO
+    from StringIO import StringIO
 except ImportError:
-	import StringIO
+    from io import StringIO
 
 
 def json_to_csv(jsonData, fieldnames=None):
@@ -43,7 +42,7 @@ def dict_to_csv(d, fieldnames):
 	>>> csvData = dict_to_csv(data, fieldnames=["col1", "col2"])
 	"""
 	buf = None
-	with closing(StringIO.StringIO()) as f:
+	with closing(StringIO()) as f:
 		dictWriter = unicodecsv.DictWriter(f, fieldnames)
 		dictWriter.writeheader()
 		dictWriter.writerows(d)
